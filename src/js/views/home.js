@@ -9,12 +9,30 @@ export const Home = () => {
 
   const characters = store.characters;
 
+  const planets = store.planets;
+
+  const vehicles = store.vehicles;
+
   return (
-    <div className="text-center mt-1 flex flex-col items-center">
-      <h1 className="font-bold text-3xl">Contact List</h1>
-      {characters.map((character) => (
-        <Card key={character.uid} name={character.name} />
-      ))}
+    <div className="container">
+      <h2 className="fs-3 mt-2">Characters</h2>
+      <div className="d-flex flex-wrap">
+        {characters.map((character) => (
+          <Card key={character.uid} name={character.name} />
+        ))}
+      </div>
+      <h2 className="fs-3 mt-4">Planets</h2>
+      <div className="d-flex flex-wrap">
+        {planets.map((planet) => (
+          <Card key={planet.uid} name={planet.name} />
+        ))}
+      </div>
+      <h2 className="fs-3 mt-4">Vehicles</h2>
+      <div className="d-flex flex-wrap">
+        {vehicles.map((vehicle) => (
+          <Card key={vehicle.uid} name={vehicle.name} />
+        ))}
+      </div>
     </div>
   );
 };
