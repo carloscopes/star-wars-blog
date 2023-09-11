@@ -16,7 +16,7 @@ export const Home = () => {
   return (
     <div className="container">
       <h2 className="fs-3 mt-2">Characters</h2>
-      <div className="d-flex flex-wrap">
+      <div className="d-flex overflow-auto">
         {characters.map((character) => (
           <Card
             key={character.uid}
@@ -27,7 +27,7 @@ export const Home = () => {
         ))}
       </div>
       <h2 className="fs-3 mt-4">Planets</h2>
-      <div className="d-flex flex-wrap">
+      <div className="d-flex overflow-auto">
         {planets.map((planet) => (
           <Card
             key={planet.uid}
@@ -38,7 +38,7 @@ export const Home = () => {
         ))}
       </div>
       <h2 className="fs-3 mt-4">Vehicles</h2>
-      <div className="d-flex flex-wrap">
+      <div className="d-flex overflow-auto">
         {vehicles.map((vehicle) => (
           <Card
             key={vehicle.uid}
