@@ -1,14 +1,16 @@
 import React, { useContext } from "react";
 import { Context } from "../store/appContext";
 import { useNavigate, useParams } from "react-router";
-import heartIcon from "../../img/heart-icon.svg";
 
 const Card = (props) => {
   const { store, actions } = useContext(Context);
   const navigate = useNavigate();
 
   return (
-    <div className="col-auto card m-2" style={{ width: "18rem" }}>
+    <div
+      className="col-auto card m-2 bg-dark border border-white"
+      style={{ width: "12rem" }}
+    >
       <img
         src={
           props.type == "planets" && props.id == "1"
@@ -19,15 +21,19 @@ const Card = (props) => {
         alt="..."
       />
       <div className="card-body">
-        <h5 className="card-title">{props.name}</h5>
-        <div className="d-flex justify-content-between">
+        <h5 className="card-title fs-6 text-white">{props.name}</h5>
+        <div className="d-flex align-items-center justify-content-between">
           <a
-            className="btn btn-primary"
+            className="btn btn-primary btn-sm"
             onClick={() => navigate(`/info/${props.type}/${props.id}`)}
           >
             See details
           </a>
-          <button type="button" className="btn btn-outline-warning fs-5">
+          <button
+            type="button"
+            className="btn btn-outline-danger btn-sm fs-5"
+            onClick={() => actions.addFavorite(props)}
+          >
             ♡
           </button>
         </div>

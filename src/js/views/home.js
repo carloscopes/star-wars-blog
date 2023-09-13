@@ -14,9 +14,9 @@ export const Home = () => {
   const vehicles = store.vehicles;
 
   return (
-    <div className="container">
-      <h2 className="fs-3 mt-2">Characters</h2>
-      <div className="d-flex overflow-auto">
+    <div className="container bg-dark">
+      <h2 className="fs-3 mt-2 text-warning">Characters</h2>
+      <div className="d-flex overflow-scroll">
         {characters.map((character) => (
           <Card
             key={character.uid}
@@ -26,7 +26,7 @@ export const Home = () => {
           />
         ))}
       </div>
-      <h2 className="fs-3 mt-4">Planets</h2>
+      <h2 className="fs-3 mt-4 text-warning">Planets</h2>
       <div className="d-flex overflow-auto">
         {planets.map((planet) => (
           <Card
@@ -37,7 +37,7 @@ export const Home = () => {
           />
         ))}
       </div>
-      <h2 className="fs-3 mt-4">Vehicles</h2>
+      <h2 className="fs-3 mt-4 text-warning">Vehicles</h2>
       <div className="d-flex overflow-auto">
         {vehicles.map((vehicle) => (
           <Card

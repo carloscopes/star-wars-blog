@@ -36,8 +36,6 @@ const getState = ({ getStore, getActions, setStore }) => {
         }
       },
       getInfo: async (type, id) => {
-        console.log(type, id);
-
         try {
           let response = await fetch(
             `https://www.swapi.tech/api/${type}/${id}`
@@ -49,6 +47,21 @@ const getState = ({ getStore, getActions, setStore }) => {
           setStore({ info: data.result.properties });
         } catch (error) {
           console.log("An error occurred in the info request: " + error);
+        }
+      },
+      addFavorite: (item) => {
+        const store = getStore();
+        const favorites = store.favorites;
+
+        setStore({ favorites: [item.name, ...favorites] });
+
+        if (favorites.some((itemFav) => itemFav.name === item.name)) {
+          const updateFav = favorites.filter(
+            (itemFav) => itemFav.name !== item.name
+          );
+          setStore({ favorites: updateFav });
+        } else {
+          setStore({ favorites: [item.name, ...favorites] });
         }
       },
     },

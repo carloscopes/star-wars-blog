@@ -16,8 +16,8 @@ const info = (props) => {
 
   return (
     <div className="container">
-      <div className="row d-flex flex-row bg-info">
-        <div className="col-lg-3 bg-warning justify-content-center">
+      <div className="row d-flex flex-row">
+        <div className="col-lg-3 justify-content-center">
           <img
             src={
               params.type == "planets" && params.id == "1"
@@ -29,10 +29,10 @@ const info = (props) => {
           />
         </div>
 
-        <div className="col-lg-9">
+        <div className="col-lg-9 text-white">
           {params.type == "characters" && (
             <>
-              <h2 className="text-primary">{store.info.name}</h2>
+              <h2 className="text-warning">{store.info.name}</h2>
               <p>
                 He was a young man with a dream of becoming a Jedi Knight. He
                 had always felt a strong connection to the Force, the mysterious
@@ -60,7 +60,7 @@ const info = (props) => {
           )}
           {params.type == "planets" && (
             <>
-              <h2 className="text-primary">{store.info.name}</h2>
+              <h2 className="text-warning">{store.info.name}</h2>
               <p>
                 It was a world of contrasts, where ancient ruins and futuristic
                 cities coexisted. It was a hub of commerce and culture, where
@@ -91,7 +91,7 @@ const info = (props) => {
           )}
           {params.type == "vehicles" && (
             <>
-              <h2 className="text-primary">{store.info.name}</h2>
+              <h2 className="text-warning">{store.info.name}</h2>
               <p>
                 It was a marvel of engineering, a machine that could traverse
                 any terrain and withstand any environment. It was a weapon of
