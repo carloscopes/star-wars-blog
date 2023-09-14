@@ -51,18 +51,28 @@ const getState = ({ getStore, getActions, setStore }) => {
       },
       addFavorite: (item) => {
         const store = getStore();
-        const favorites = store.favorites;
+        const favorites = store.favorites; // Obtener la lista actual de favoritos desde el estado
 
-        setStore({ favorites: [item.name, ...favorites] });
-
-        if (favorites.some((itemFav) => itemFav.name === item.name)) {
-          const updateFav = favorites.filter(
-            (itemFav) => itemFav.name !== item.name
-          );
-          setStore({ favorites: updateFav });
+        // Verificar si el elemento ya está en favoritos
+        if (favorites.some((itemFav) => itemFav === item.name)) {
+          // Comprobar si el nombre del elemento coincide con algún elemento en favoritos
+          const updatedFav = favorites.filter(
+            (itemFav) => itemFav !== item.name
+          ); // Filtrar el elemento actual para eliminarlo de la lista
+          setStore({ favorites: updatedFav }); // Actualizar el estado con la lista de favoritos actualizada (elemento eliminado)
         } else {
-          setStore({ favorites: [item.name, ...favorites] });
+          setStore({ favorites: [item.name, ...favorites] }); // Si el elemento no está en favoritos, agregarlo al principio de la lista y actualizar el estado
         }
+      },
+      deleteFavorite: (item) => {
+        const store = getStore();
+
+        const updateFavList = store.favorites.filter(
+          (itemFav) => itemFav !== item
+        );
+
+        console.log(updateFavList);
+        setStore({ favorites: updateFavList });
       },
     },
   };

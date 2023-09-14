@@ -24,7 +24,7 @@ const Card = (props) => {
         <h5 className="card-title fs-6 text-white">{props.name}</h5>
         <div className="d-flex align-items-center justify-content-between">
           <a
-            className="btn btn-primary btn-sm"
+            className="btn btn-warning btn-sm"
             onClick={() => navigate(`/info/${props.type}/${props.id}`)}
           >
             See details
